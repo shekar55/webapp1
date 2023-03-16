@@ -110,7 +110,7 @@ pipeline{
         stage("Docker Push"){
             steps{
                 script{
-                    withCredentials([string(credentialsId: 'git_cred', variable: 'dockernex')]) { 
+                    withCredentials([string(credentialsId: 'git_cred', variable: 'dockernex')]) { //secrettext
                    sh "docker login -u admin -p ${dockernex} 13.233.58.184:8085"
         }
         sh "docker push 13.233.58.184:8085/webapp:v1"
